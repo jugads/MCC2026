@@ -1,8 +1,6 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix6.hardware.TalonFX;
-import com.ctre.phoenix6.configs.TalonFXConfiguration;
-import com.ctre.phoenix6.controls.DutyCycleOut;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class HopperIOTalonFX implements HopperIO {
@@ -19,13 +17,13 @@ public HopperIOTalonFX(int beltID) {
 
   @Override
     public void updateInputs(HopperIOInputs inputs) {
-        inputs.beltspeed = beltMotor.getAppliedOutput();
+        inputs.beltspeed = beltMotor.get();
     }
 
     @Override
     public void refreshData() {
         // Not required for Spark MAX, but useful for manual telemetry push or debug logging
-        SmartDashboard.putNumber("Hopper Speed", beltMotor.getAppliedOutput());
+        SmartDashboard.putNumber("Hopper Speed", beltMotor.get());
     }
 
 

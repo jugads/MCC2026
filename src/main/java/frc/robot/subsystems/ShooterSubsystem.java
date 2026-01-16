@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class HopperSubsystem extends SubsystemBase {
-    private final HopperIO io;
-    private final HopperIO.HopperIOInputs inputs = new HopperIO.HopperIOInputs();
+public class ShooterSubsystem extends SubsystemBase {
+    private final ShooterIO io;
+    private final ShooterIO.shooterIOInputs inputs = new ShooterIO.shooterIOInputs();
 
     public enum WantedState {
         IDLE,
@@ -22,9 +22,9 @@ public class HopperSubsystem extends SubsystemBase {
     private WantedState wantedState = WantedState.IDLE;
     private SystemState systemState = SystemState.IDLED;
 
-     private double beltSpeedSetpoint = 0.0;
+     private double shooterspeedsetpoint = 0.0;
 
-     public HopperSubsystem(HopperIO io) {
+     public ShooterSubsystem(ShooterIO io) {
         this.io = io;
     }
 
@@ -42,14 +42,14 @@ public class HopperSubsystem extends SubsystemBase {
 
     switch (systemState) {
             case FEEDING:
-                io.setBeltspeed(0.1);
+                io.setShooterSpeed(0.1);
                 break;
             case REVERSING:
-                io.setBeltspeed(-beltSpeedSetpoint);
+                io.setShooterSpeed(-shooterspeedsetpoint);
                 break;
             case IDLED:
             default:
-                io.setBeltspeed(0.0);
+                io.setShooterSpeed(0.0);
                 break;
         }
     }
@@ -66,12 +66,12 @@ public class HopperSubsystem extends SubsystemBase {
         }
     }
     
-    public void feed(double beltSpeed) {
-        this.beltSpeedSetpoint = beltSpeed;
+    public void feed(double shooterSpeed) {
+        this.shooterspeedsetpoint = shooterSpeed;
         setWantedState(WantedState.FEEDING);
     }
-     public void reverse(double beltSpeed) {
-        this.beltSpeedSetpoint = beltSpeed;
+     public void reverse(double shooterSpeed) {
+        this.shooterspeedsetpoint = shooterSpeed;
         setWantedState(WantedState.REVERSE);
     }
       public void stop() {
@@ -99,6 +99,7 @@ public class HopperSubsystem extends SubsystemBase {
     }
 }
     
+
 
 
 
