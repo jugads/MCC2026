@@ -15,20 +15,16 @@ public class Constants {
         public static final double kI = 0.0;
         public static final double kD = 0.0;
 
-        public class GroundIntakeIOInputs {
-            public double intakeSpeed = 0.0;
-            public double encoderPosition = 0.0;
-         }
-
-         public class GroundIntakeSubsystem {
-            public static final double MIN_WHEEL_SPEED = 0;
-            public static final double MIN_PIVOT_SPEED = 0;
-            public static final double feedingIntakeSpeed = 0.5;
-            public static final double feedingPositionSetpoint = 0.5;
-            public static final double idledIntakeSpeed = 0;
-            public static final double idledPivotSpeed = 0;
-         }
-
+        public double intakeSpeed = 0.0;
+        public double encoderPosition = 0.0;
+    
+        public static final double MIN_WHEEL_SPEED = 0;
+        public static final double MIN_PIVOT_SPEED = 0;
+        public static final double feedingIntakeSpeed = 0.5;
+        public static final double feedingPositionSetpoint = 0.5;
+        public static final double idledIntakeSpeed = 0;
+        public static final double idledPivotSpeed = 0;
+       
     }
     
 }
