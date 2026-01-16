@@ -10,10 +10,10 @@ import com.ctre.phoenix6.hardware.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import static frc.robot.Constants.GroundIntakeConstants.*;
+
 
 public class GroundIntakeSubsystem extends SubsystemBase {
-  private static final double MIN_WHEEL_SPEED = 0;
-  private static final double MIN_PIVOT_SPEED = 0;
   private final GroundIntakeIO io;
   private final GroundIntakeIO.GroundIntakeIOInputs inputs = new GroundIntakeIO.GroundIntakeIOInputs();
   double setpoint;
@@ -74,17 +74,16 @@ private enum SystemState {
     // Run outputs based on current system state
     switch (systemState) {
       case FEEDING:
-          io.setIntakeSpeed(0.5);
-          io.setPositionSetpoint(15);
+          io.setIntakeSpeed(feedingIntakeSpeed);
+          io.setPositionSetpoint(feedingPositionSetpoint);
           break;
       case REVERSING:
           io.setIntakeSpeed(-wheelSpeedSetpoint);
-          io.setPivotSpeed(-pivotSpeedSetpoint);
           break;
       case IDLED:
       default:
-          io.setIntakeSpeed(0.0);
-          io.setPivotSpeed(0.0);
+          io.setIntakeSpeed(idledIntakeSpeed);
+          io.setPivotSpeed(idledPivotSpeed);
           break;
     }
 

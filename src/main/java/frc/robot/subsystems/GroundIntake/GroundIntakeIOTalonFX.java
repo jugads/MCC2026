@@ -5,19 +5,21 @@ package frc.robot.subsystems.GroundIntake;
 //import com.revrobotics.AbsoluteEncoder;
 //import com.revrobotics.RelativeEncoder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Constants.GroundIntakeConstants;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.ArmFeedforward;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import com.ctre.phoenix6.hardware.*;
 
+import static frc.robot.Constants.GroundIntakeConstants.*;
 
 public class GroundIntakeIOTalonFX implements GroundIntakeIO{
     private final TalonFX pivotMotor;
     private final TalonFX intakeMotor;
     private final DutyCycleEncoder encoder;
-    private final ArmFeedforward ff = new ArmFeedforward(0., 0.035, 0);
-    PIDController controller= new PIDController(2.4067, 0, 0.0);
+    private final ArmFeedforward ff = new ArmFeedforward(kS, kG, kV);
+    PIDController controller = new PIDController(kP, kI, kD);
    
 
     public GroundIntakeIOTalonFX(int pivotID, int intakeID) {
@@ -39,17 +41,17 @@ public class GroundIntakeIOTalonFX implements GroundIntakeIO{
     @Override
     public void updateInputs(GroundIntakeIOInputs inputs) {
        //SPARK MAX VERSION: inputs.intakeSpeed = intakeMotor.getAppliedOutput() * intakeMotor.getBusVoltage();
-       inputs.intakeSpeed = intakeMotor.getMotorVoltage().getValueAsDouble();
+       inputs.intakeSpeed = intakeMotor.get();
        //SPARK MAX VERSION: inputs.encoderPosition = pivotMotor.getOutputCurrent();
-       inputs.encoderPosition = pivotMotor.getStatorCurrent().getValueAsDouble();
+       inputs.encoderPosition = encoder.get();
     }
     @Override
     public void refreshData() {
         // Not required for Spark MAX, but useful for manual telemetry push or debug logging
         //SPARK MAX VERSION: SmartDashboard.putNumber("GroundIntake/WheelSpeed", intakeMotor.getAppliedOutput() * intakeMotor.getBusVoltage());
         //SPARK MAX VERSION: SmartDashboard.putNumber("GroundIntake/EncoderPosition", pivotMotor.getAppliedOutput() * pivotMotor.getBusVoltage());
-        SmartDashboard.putNumber("GroundIntake/WheelSpeed", intakeMotor.getMotorVoltage().getValueAsDouble());
-        SmartDashboard.putNumber("GroundIntake/EncoderPosition", pivotMotor.getMotorVoltage().getValueAsDouble());
+        SmartDashboard.putNumber("GroundIntake/WheelSpeed", intakeMotor.get());
+        SmartDashboard.putNumber("GroundIntake/EncoderPosition", getEncoderVal());
     }
     /* @Override
     public double getEncoderVal() {
@@ -59,7 +61,7 @@ public class GroundIntakeIOTalonFX implements GroundIntakeIO{
     @Override
     public double getEncoderVal() {
     // getPosition() returns a StatusSignal; getValueAsDouble() converts it to a numeric value.
-    return this.pivotMotor.getPosition().getValueAsDouble();
+    return encoder.get();
 }
 
     @Override
