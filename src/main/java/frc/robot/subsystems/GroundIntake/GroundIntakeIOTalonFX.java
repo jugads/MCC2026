@@ -1,10 +1,5 @@
 package frc.robot.subsystems.GroundIntake;
 
-
-
-
-
-
 //import com.revrobotics.spark.SparkLowLevel.MotorType;
 //import com.revrobotics.spark.SparkMax;
 //import com.revrobotics.AbsoluteEncoder;

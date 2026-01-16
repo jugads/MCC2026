@@ -2,13 +2,6 @@ package frc.robot.subsystems.GroundIntake;
 
 import com.ctre.phoenix6.hardware.*;
 
-
-
-
-
-
-
-
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
@@ -51,6 +44,8 @@ private enum SystemState {
 
   public double getWheelSpeed() { return wheelSpeedSetpoint;}
   private void setWheelSpeed(double newSpeed) {this.wheelSpeedSetpoint = newSpeed;} 
+  public double getPivotSpeed() { return wheelSpeedSetpoint;}
+  private void setPivotSpeed(double newSpeed) {this.wheelSpeedSetpoint = newSpeed;} 
 
   private void adjustSpeeds () {
     double currentSpeed = getWheelSpeed();
