@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.1605666666666665,
-        "y": 2.392322222222223
+        "x": 2.9187,
+        "y": 2.6442666666666663
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.3845777777777775,
-        "y": 1.5256333333333343
+        "x": 1.5178888888888888,
+        "y": 1.0822111111111095
       },
       "isLocked": false,
       "linkedName": "RS5-2"
@@ -20,15 +20,20 @@
         "y": 0.5279333333333329
       },
       "prevControl": {
-        "x": 2.807844444444445,
-        "y": 0.3566111111111094
+        "x": 2.7272222222222218,
+        "y": 0.5682444444444437
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "RS5"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 0.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -48,7 +53,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 47.935673446421134
+    "rotation": 40.13548556223955
   },
   "useDefaultConstraints": false
 }

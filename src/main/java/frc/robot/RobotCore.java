@@ -159,7 +159,7 @@ public class RobotCore extends SubsystemBase {
         shooter.stop();
         break;
       case SHOOTING:
-        shooter.shoot(5300, 0);
+        shooter.shoot(4500, 0.2);
         if (shooter.isUpToSpeed()) {
           if (!intakeOverride) {
             shooter.shootAtHub();
@@ -283,7 +283,7 @@ public class RobotCore extends SubsystemBase {
           break;
         case SHOOTING:
           groundIntake.setWantedState(
-            GroundIntakeSubsystem.WantedState.REVERSE
+            GroundIntakeSubsystem.WantedState.COMPRESS
           );
           break;
         case REVVING_AUTO:

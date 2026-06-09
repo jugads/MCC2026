@@ -1,0 +1,139 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.614066666666667,
+        "y": 7.602533333333334
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.614066666666668,
+        "y": 7.602533333333334
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 6.103277777777778,
+        "y": 7.602533333333334
+      },
+      "prevControl": {
+        "x": 5.103277777777778,
+        "y": 7.602533333333334
+      },
+      "nextControl": {
+        "x": 7.103277777777778,
+        "y": 7.602533333333334
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.574633333333333,
+        "y": 6.252111111111111
+      },
+      "prevControl": {
+        "x": 7.617627334039712,
+        "y": 6.999131873384462
+      },
+      "nextControl": {
+        "x": 7.494011111111112,
+        "y": 4.851299999999999
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.13898888888889,
+        "y": 4.468344444444444
+      },
+      "prevControl": {
+        "x": 7.798056601359697,
+        "y": 4.495987602892757
+      },
+      "nextControl": {
+        "x": 8.511866666666668,
+        "y": 4.438111111111112
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.552177777777779,
+        "y": 5.849
+      },
+      "prevControl": {
+        "x": 8.824277777777777,
+        "y": 5.073011111111112
+      },
+      "nextControl": {
+        "x": 8.28007777777778,
+        "y": 6.624988888888889
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.23198888888889,
+        "y": 4.962155555555555
+      },
+      "prevControl": {
+        "x": 7.433544444444444,
+        "y": 5.657522222222223
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "LS-follow-End"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.0263157894736816,
+      "rotationDegrees": 180.0
+    },
+    {
+      "waypointRelativePos": 2,
+      "rotationDegrees": -90.0
+    },
+    {
+      "waypointRelativePos": 3,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 4,
+      "rotationDegrees": 90.0
+    },
+    {
+      "waypointRelativePos": 4.5964912280701675,
+      "rotationDegrees": 180.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -157.98871680208075
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 180.0
+  },
+  "useDefaultConstraints": true
+}

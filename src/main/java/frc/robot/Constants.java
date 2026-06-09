@@ -128,7 +128,7 @@ public class Constants {
       1.75, 4200.
     };
     public static final Double[] k_SHOOTER_ENTRY_FAR_DCMP = new Double[] {
-      3.5, 6050.
+      3.5, 6150.
     };
     public static final double kSHOOTER_REV_ADJUSTMENT = 80.;
     public static final double kP = 0.4;

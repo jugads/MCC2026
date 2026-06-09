@@ -93,6 +93,9 @@ public class GroundIntakeIOTalonFX implements GroundIntakeIO {
     //SPARK MAX VERSION: SmartDashboard.putNumber("GroundIntake/WheelSpeed", intakeMotor.getAppliedOutput() * intakeMotor.getBusVoltage());
     //SPARK MAX VERSION: SmartDashboard.putNumber("GroundIntake/EncoderPosition", pivotMotor.getAppliedOutput() * pivotMotor.getBusVoltage());
     SmartDashboard.putNumber("Average Supply Current", (intakeMotor.getSupplyCurrent().getValueAsDouble() + intakeMotorFollower.getSupplyCurrent().getValueAsDouble()) / 2);
+
+    SmartDashboard.putNumber("Top Motor Supply Current", intakeMotor.getSupplyCurrent().getValueAsDouble());
+    SmartDashboard.putNumber("Bottom Motor Supply Current", intakeMotorFollower.getSupplyCurrent().getValueAsDouble());
   }
 
   /* @Override

@@ -72,8 +72,8 @@ public class RobotContainer {
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final SwerveRequest.FieldCentric drive =
     new SwerveRequest.FieldCentric()
-      .withDeadband(MaxSpeed * 0.1)
-      .withRotationalDeadband(MaxAngularRate * 0.1) // Add a 10% deadband
+      .withDeadband(MaxSpeed * 0.06)
+      .withRotationalDeadband(MaxAngularRate * 0.06) // Add a 10% deadband
       .withDriveRequestType(DriveRequestType.OpenLoopVoltage);
 
   private final SwerveRequest.RobotCentric driveRR =
@@ -151,7 +151,6 @@ public class RobotContainer {
       drivetrain.applyRequest(
         () ->
           drive
-            .withForwardPerspective(ForwardPerspectiveValue.OperatorPerspective)
             .withVelocityX(
               rateLimiter1.calculate(-driver.getLeftY() * MaxSpeed)
             ) // Drive forward with negative Y (forward)
@@ -188,9 +187,9 @@ public class RobotContainer {
         )
       )
       .whileFalse(robotSuper.setWantedSuperStateCommand(WantedSuperState.HOME));
-      driver.leftTrigger().whileTrue(
-        new TidalLockCommand(drivetrain, () -> driver.getLeftY(), () -> driver.getLeftX(), drive, () -> 0)
-      );
+      // driver.leftTrigger().whileTrue(
+      //   new TidalLockCommand(drivetrain, () -> driver.getLeftY(), () -> driver.getLeftX(), drive, () -> 0)
+      // );
     // driver
     //   .rightTrigger()
     //   .whileTrue(
@@ -205,49 +204,23 @@ public class RobotContainer {
     //     )
     //   )
     //   .whileFalse(robotSuper.setWantedSuperStateCommand(WantedSuperState.HOME));
-    driver
-      .y()
-      .whileTrue(robotSuper.shootFuel(true))
-      .whileFalse(robotSuper.setWantedSuperStateCommand(WantedSuperState.HOME));
-    driver
-      .rightBumper()
-      .whileTrue(
-        drivetrain.applyRequest(() ->
-          drive
-            .withForwardPerspective(ForwardPerspectiveValue.OperatorPerspective)
-            .withVelocityX(-driver.getLeftY() * MaxSpeed * 0.35)
-            .withVelocityY(-driver.getLeftX() * MaxSpeed * 0.2)
-            .withRotationalRate(
-              dash.calculateRotationalVelocity() * MaxAngularRate
-            )
-        )
-      );
-    driver
-      .x()
-      .whileTrue(
-        drivetrain.applyRequest(() ->
-          driveRR
-            .withVelocityX(-driver.getLeftY() * MaxSpeed) // Drive forward with negative Y (forward)
-            .withVelocityY(-driver.getLeftX() * MaxSpeed) // Drive left with negative X (left) // Drive left with negative X (left)
-            .withRotationalRate(-driver.getRightX() * MaxAngularRate)
-        )
-      );
-    driver
-      .leftBumper()
-      .whileTrue(
-        new BumpLock(
-          drivetrain,
-          () -> -driver.getLeftX(),
-          () -> -driver.getLeftY(),
-          drive
-        )
-      );
-    driver
-      .b()
-      .whileTrue(
-        robotSuper.setWantedSuperStateCommand(WantedSuperState.REVERSE_INTAKE)
-      )
-      .whileFalse(robotSuper.setWantedSuperStateCommand(WantedSuperState.HOME));
+    // driver
+    //   .y()
+    //   .whileTrue(robotSuper.shootFuel(true))
+    //   .whileFalse(robotSuper.setWantedSuperStateCommand(WantedSuperState.HOME));
+    // driver
+    //   .rightBumper()
+    //   .whileTrue(
+    //     drivetrain.applyRequest(() ->
+    //       drive
+    //         .withForwardPerspective(ForwardPerspectiveValue.OperatorPerspective)
+    //         .withVelocityX(-driver.getLeftY() * MaxSpeed * 0.35)
+    //         .withVelocityY(-driver.getLeftX() * MaxSpeed * 0.2)
+    //         .withRotationalRate(
+    //           dash.calculateRotationalVelocity() * MaxAngularRate
+    //         )
+    //     )
+    //   );
     driver.start().onTrue(new InstantCommand(() -> MaxSpeed *= -1));
     //////OPERATOR CONTROLS ----------------------------------------------------
     operator.b().whileTrue(new Tweak(drivetrain));

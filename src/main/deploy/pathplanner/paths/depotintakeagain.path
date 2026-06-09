@@ -3,46 +3,37 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.410211111111112,
-        "y": 0.4271555555555563
+        "x": 0.9132222222222222,
+        "y": 6.052348754448399
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.6497777777777785,
-        "y": 1.6667222222222224
+        "x": 1.4171111111186099,
+        "y": 5.9699333333333335
       },
       "isLocked": false,
-      "linkedName": "RS2"
+      "linkedName": "depot done"
     },
     {
       "anchor": {
-        "x": 6.919577777777778,
-        "y": 3.5210333333333326
+        "x": 0.9132222222222222,
+        "y": 5.7784555555555555
       },
       "prevControl": {
-        "x": 7.655255555555554,
-        "y": 3.6822777777777773
+        "x": 1.336488888896387,
+        "y": 5.828844444444443
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "RS3"
+      "linkedName": "depotgoshot"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.336842105263155,
-      "rotationDegrees": 90.0
-    },
-    {
-      "waypointRelativePos": 0.5789473684210562,
-      "rotationDegrees": 90.0
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.0,
+    "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0,
@@ -51,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 165.77403610124819
+    "rotation": 178.71520087506994
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": -179.21527281401396
   },
-  "useDefaultConstraints": false
+  "useDefaultConstraints": true
 }

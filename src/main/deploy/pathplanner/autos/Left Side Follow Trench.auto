@@ -1,0 +1,93 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 4.0
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ROB-state_INTAKE"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "LS-follow-Collect"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "reset odometry"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ROB-state_HOME"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "LS-follow-Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "shoot-from-range"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Tidal Lock"
+          }
+        },
+        {
+          "type": "race",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Tidal Lock"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 1.5
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "int-OVERRIDE"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}
